@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+      "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!-- Master -->
+    <definition name="login.master.page" template="/public/template/login_master.jsp">
+        <put-attribute name="header" value="/public/template/header.jsp"/>
+        <put-attribute name="footer" value="/public/template/footer.jsp"/>
+    </definition>
+    
+    
+    
+    <definition name="master.page" template="/public/template/master.jsp">
+        <put-attribute name="header" value="/public/template/header.jsp"/>
+        <put-attribute name="menu" value="/public/template/menu.jsp"/>
+        <put-attribute name="footer" value="/public/template/footer.jsp"/>
+    </definition>
+
+    <!--  Pages -->
+    <definition name="welcomePage" extends="master.page">
+        <put-attribute name="title" value="Dashboard" />
+        <put-attribute name="body" value="/protected/welcomePage.jsp"/>
+    </definition>
+    <definition name="products" extends="master.page">
+        <put-attribute name="title" value="Products Definition" />
+        <put-attribute name="body" value="/protected/products/products.jsp"/>
+    </definition>
+    
+    <definition name="g7Members" extends="master.page">
+        <put-attribute name="title" value="G7 Investment Analysis" />
+        <put-attribute name="body" value="/protected/g7Members/g7Members.jsp"/>
+    </definition>
+       
+    
+     <definition name="setupScreen" extends="master.page">
+        <put-attribute name="title" value="Underwriting Configuration" />
+        <put-attribute name="body" value="/protected/setupScreen.jsp"/>
+    </definition>
+    
+    <definition name="orgsetupScreen" extends="master.page">
+        <put-attribute name="title" value="Organization Setups" />
+        <put-attribute name="body" value="/protected/orgSetupScreen.jsp"/>
+    </definition>
+    
+    <definition name="orgdefinition" extends="master.page">
+        <put-attribute name="title" value="Organization Definition" />
+        <put-attribute name="body" value="/protected/organization/orgdefinition.jsp"/>
+    </definition>
+    
+    <definition name="login" extends="login.master.page">
+        <put-attribute name="header" value=""/>
+        <put-attribute name="footer" value=""/>
+        <put-attribute name="body" value="/public/login.jsp"/>
+    </definition>
+    
+    <definition name="productsForm" template="/public/template/section_master.jsp">
+         <put-attribute name="body" value="/protected/products/productsForm.jsp"/>
+    </definition>
+    
+    <definition name="productsList" template="/public/template/section_master.jsp">
+         <put-attribute name="body" value="/protected/products/productsList.jsp"/>
+    </definition>
+    
+     <definition name="subclassList" template="/public/template/section_master.jsp">
+         <put-attribute name="body" value="/protected/products/subclassList.jsp"/>
+    </definition>
+    
+    <definition name="prodsubclasses" template="/public/template/section_master.jsp">
+         <put-attribute name="body" value="/protected/products/modals/subclassModal.jsp"/>
+    </definition>
+    
+    <definition name="classes" extends="master.page">
+        <put-attribute name="title" value="Classes of Insurance" />
+        <put-attribute name="body" value="/protected/classes/classes.jsp"/>
+    </definition>
+    
+      <definition name="classform" template="/public/template/section_master.jsp">
+         <put-attribute name="body" value="/protected/classes/classform.jsp"/>
+    </definition>
+    
+        <definition name="classsubclasses" template="/public/template/section_master.jsp">
+         <put-attribute name="body" value="/protected/classes/classsubclasses.jsp"/>
+    </definition>
+    
+    <definition name="subclassForm" template="/public/template/section_master.jsp">
+         <put-attribute name="body" value="/protected/classes/modals/subclassform.jsp"/>
+    </definition>
+    
+    
+    
+    <definition name="editProdsubclasses" template="/public/template/section_master.jsp">
+         <put-attribute name="body" value="/protected/products/modals/editSubclassForm.jsp"/>
+    </definition>
+</tiles-definitions>

@@ -1,0 +1,42 @@
+package org.tracsystems.apps.brokerage.auth.security;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+import org.tracsystems.apps.brokerage.auth.model.User;
+import org.tracsystems.apps.brokerage.auth.repository.UserRepository;
+import org.tracsystems.apps.brokerage.auth.repository.UserRolesRepository;
+
+
+@Service("customUserDetailsService")
+public class CustomUserDetailsService implements UserDetailsService {
+
+	private final UserRepository userRepository;
+	private final UserRolesRepository userRolesRepository;
+	
+	
+	@Autowired
+	public CustomUserDetailsService(UserRepository userRepository, UserRolesRepository userRolesRepository) {
+		this.userRepository = userRepository;
+		this.userRolesRepository = userRolesRepository;
+	}
+
+
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = userRepository.findByUsername(username);
+		if(user == null){
+			throw new UsernameNotFoundException("No user present with username: "+username);
+		}
+		else{
+			List<String> userRoles=userRolesRepository.findRoleByUserName(username);
+			return new CustomUserDetails(user, userRoles);
+		}
+	}
+
+}
