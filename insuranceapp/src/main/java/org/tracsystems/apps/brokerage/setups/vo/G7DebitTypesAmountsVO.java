@@ -1,6 +1,7 @@
 package org.tracsystems.apps.brokerage.setups.vo;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class G7DebitTypesAmountsVO implements Serializable{
@@ -8,11 +9,11 @@ public class G7DebitTypesAmountsVO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Long gdtaCode;
-	private String gdtaAmount;
+	private BigDecimal gdtaAmount;
 	private Date gdtaWef;
 	private Date gdtaWet;
 	
-	public G7DebitTypesAmountsVO(Long gdtaCode, String gdtaAmount, Date gdtaWef, Date gdtaWet) {
+	public G7DebitTypesAmountsVO(Long gdtaCode, BigDecimal gdtaAmount, Date gdtaWef, Date gdtaWet) {
 		super();
 		this.gdtaCode = gdtaCode;
 		this.gdtaAmount = gdtaAmount;
@@ -26,10 +27,10 @@ public class G7DebitTypesAmountsVO implements Serializable{
 	public void setGdtaCode(Long gdtaCode) {
 		this.gdtaCode = gdtaCode;
 	}
-	public String getGdtaAmount() {
+	public BigDecimal getGdtaAmount() {
 		return gdtaAmount;
 	}
-	public void setGdtaAmount(String gdtaAmount) {
+	public void setGdtaAmount(BigDecimal gdtaAmount) {
 		this.gdtaAmount = gdtaAmount;
 	}
 	public Date getGdtaWef() {

@@ -40,9 +40,6 @@ public class G7MemberDebits implements Serializable{
 	@Column(name="gmd_debit_no")
 	private String gmdDebitNo;
 	
-	//bi-directional many-to-one association to g7_debit_types Table
-	@OneToOne(mappedBy="g7MemberDebit")
-	private G7DebitTypes g7DebitType;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="gmd_generated_date")
@@ -60,6 +57,9 @@ public class G7MemberDebits implements Serializable{
 	
 	@Column(name="gmd_int_acr_amt")
 	private BigDecimal gmdIntAcrAmt;
+	
+	@Column(name="gmd_gdt_code")
+	private Long gmdGdtCode;
 	
 	public G7MemberDebits() {
 	}
@@ -129,14 +129,15 @@ public class G7MemberDebits implements Serializable{
 	public void setGmdIntAcrAmt(BigDecimal gmdIntAcrAmt) {
 		this.gmdIntAcrAmt = gmdIntAcrAmt;
 	}
-	
-	public G7DebitTypes getG7DebitType() {
-		return g7DebitType;
+
+	public Long getGmdGdtCode() {
+		return gmdGdtCode;
 	}
 
-	public void setG7DebitType(G7DebitTypes g7DebitType) {
-		this.g7DebitType = g7DebitType;
+	public void setGmdGdtCode(Long gmdGdtCode) {
+		this.gmdGdtCode = gmdGdtCode;
 	}
+	
 	
 
 }

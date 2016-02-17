@@ -8,6 +8,7 @@ import org.tracsystems.apps.brokerage.setups.model.G7MemberDebits;
 import org.tracsystems.apps.brokerage.setups.model.G7Members;
 import org.tracsystems.apps.brokerage.setups.vo.G7MemberCreditsVO;
 import org.tracsystems.apps.brokerage.setups.vo.G7MemberDebitsVO;
+import org.tracsystems.apps.brokerage.setups.vo.G7MembersVO;
 
 
 public interface G7MemberService {
@@ -33,5 +34,9 @@ public interface G7MemberService {
 	public Page<G7MemberDebitsVO> findMemberSpecificDebits(int current, int length, Long memId);
 
 	public Page<G7MemberCreditsVO> findMemberSpecificCredits(int current, int length, Long memId);
+
+	public void GenerateMemberDebits(Long memId);
+
+	public G7MembersVO findG7MemberDetails(Long memId);
 
 }

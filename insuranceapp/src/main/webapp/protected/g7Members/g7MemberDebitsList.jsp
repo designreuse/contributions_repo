@@ -1,8 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <div class='spacer'></div>
- <a href="<c:url value="/protected/classes"/>" class="btn btn-primary"> 
-    Generate Member Statement
+ <a href="#" onclick="genMemDebits();" class="btn btn-primary"> 
+    Generate Member Debits
  </a>
+ <div class='spacer'></div>
+ <input type="hidden" id="memberCode"/>
 <table id="allMemDebits" class="table table-hover table-bordered"
 	cellspacing="0" width="100%">
 	<thead>

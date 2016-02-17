@@ -32,6 +32,14 @@
         <put-attribute name="title" value="G7 Investment Analysis" />
         <put-attribute name="body" value="/protected/g7Members/g7Members.jsp"/>
     </definition>
+    
+    <definition name="g7MemberDList" template="/public/template/section_master.jsp">
+         <put-attribute name="body" value="/protected/g7Members/g7MemberDebitsList.jsp"/>
+    </definition>
+    
+    <definition name="g7MemberSummary" template="/public/template/section_master.jsp">
+         <put-attribute name="body" value="/protected/g7Members/g7MemberSummary.jsp"/>
+    </definition>
        
     
      <definition name="setupScreen" extends="master.page">

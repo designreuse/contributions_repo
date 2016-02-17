@@ -35,10 +35,6 @@ public class G7DebitTypes  implements Serializable{
 	@Column(name="gdt_desc")
 	private String gdtDesc;
 	
-	//bi-directional many-to-one association to G7Members Table
-	@OneToOne
-	@JoinColumn(name="gmd_gdt_code")
-	private G7MemberDebits g7MemberDebit;
 	
 	//bi-directional many-to-one association to Product
 	@OneToMany(mappedBy="g7DebitType")
@@ -73,14 +69,6 @@ public class G7DebitTypes  implements Serializable{
 	}
 
 
-	public G7MemberDebits getG7MemberDebit() {
-		return g7MemberDebit;
-	}
-
-
-	public void setG7MemberDebit(G7MemberDebits g7MemberDebit) {
-		this.g7MemberDebit = g7MemberDebit;
-	}
 	
 	public List<G7DebitTypesAmounts> getG7DebitTypesAmount() {
 		return g7DebitTypesAmount;

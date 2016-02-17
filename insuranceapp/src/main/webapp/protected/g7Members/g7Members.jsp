@@ -26,16 +26,34 @@
             
             <div class="col-md-9 col-sm-6">
             	<div id="accordion" class="panel-group">
+            		<div class="panel panel-default">
+			            <div class="panel-heading">
+			                <h4 class="panel-title">
+			                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Member Summary</a>
+			                </h4>
+			            </div>
+			            <div id="collapseThree" class="panel-collapse collapse in">
+			                <div class="panel-body">
+			                    <div class="box-body no-padding">  
+			                          <div class="bodycontainer scrollable" style="max-height: 300px; width: 100%;">
+			                            <div id="g7MemberSummaryData">
+			                             <%@ include file="g7MemberSummary.jsp" %>
+										</div>
+									  </div>
+			                   </div>
+			                </div>
+			            </div>
+			        </div>
 			        <div class="panel panel-default">
 			            <div class="panel-heading">
 			                <h4 class="panel-title">
 			                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Member Debit Transactions</a>
 			                </h4>
 			            </div>
-			            <div id="collapseOne" class="panel-collapse collapse in">
+			            <div id="collapseOne" class="panel-collapse collapse">
 			                <div class="panel-body">
 			                    <div class="box-body no-padding">  
-			                          <div class="bodycontainer scrollable" style="max-height: 300px; width: 100%;">
+			                          <div class="bodycontainer scrollable" style="max-height: 350px; width: 100%;">
 			                            <div id="g7MemberDtData">
 			                             <%@ include file="g7MemberDebitsList.jsp" %>
 										</div>
@@ -59,18 +77,6 @@
 										</div>
 									  </div>
 			                   </div>
-			                </div>
-			            </div>
-			        </div>
-			        <div class="panel panel-default">
-			            <div class="panel-heading">
-			                <h4 class="panel-title">
-			                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Member Summary</a>
-			                </h4>
-			            </div>
-			            <div id="collapseThree" class="panel-collapse collapse">
-			                <div class="panel-body">
-			                    <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="http://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
 			                </div>
 			            </div>
 			        </div>

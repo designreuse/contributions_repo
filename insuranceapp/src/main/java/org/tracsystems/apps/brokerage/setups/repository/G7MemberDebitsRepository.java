@@ -15,6 +15,10 @@ public interface G7MemberDebitsRepository extends JpaRepository<G7MemberDebits, 
 	
 	@Query("select new org.tracsystems.apps.brokerage.setups.vo.G7MemberDebitsVO(b.gmdCode,b.gmdDebitNo,b.gmdGeneratedDate,b.gmdDueDate,b.gmdAmount,b.gmdSettled,b.gmdIntAcrAmt) from G7MemberDebits b where b.g7Member.gmemCode =:memId")
 	Page<G7MemberDebitsVO> findMemberSpecificDebits(@Param("memId") Long memId,Pageable pageable);
+	
+	@Query("select new org.tracsystems.apps.brokerage.setups.vo.G7MemberDebitsVO(b.gmdCode,b.gmdDebitNo,b.gmdGeneratedDate,b.gmdDueDate,b.gmdAmount,b.gmdSettled,b.gmdIntAcrAmt) from G7MemberDebits b where b.g7Member.gmemCode =:memId and b.gmdGdtCode =:debitCode")
+	List<G7MemberDebitsVO> findMemberSpecificDebitsList(@Param("memId") Long memId, @Param("debitCode") Long debitCode);
+
 
 	List<G7MemberDebits> findByG7Member(G7Members g7member);
 }

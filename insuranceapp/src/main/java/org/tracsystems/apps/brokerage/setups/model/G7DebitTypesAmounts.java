@@ -1,6 +1,7 @@
 package org.tracsystems.apps.brokerage.setups.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -36,7 +37,7 @@ public class G7DebitTypesAmounts implements Serializable{
 	private G7DebitTypes g7DebitType;
 	
 	@Column(name="gdta_amount")
-	private String gdtaAmount;
+	private BigDecimal gdtaAmount;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="gdta_wef")
@@ -62,11 +63,11 @@ public class G7DebitTypesAmounts implements Serializable{
 		this.g7DebitType = g7DebitType;
 	}
 
-	public String getGdtaAmount() {
+	public BigDecimal getGdtaAmount() {
 		return gdtaAmount;
 	}
 
-	public void setGdtaAmount(String gdtaAmount) {
+	public void setGdtaAmount(BigDecimal gdtaAmount) {
 		this.gdtaAmount = gdtaAmount;
 	}
 

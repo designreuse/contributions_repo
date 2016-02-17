@@ -1,12 +1,32 @@
 function initializeMemberDetails(id){
+	$("#memberCode").val(id);
 	initializeMemberCredits(id);
 	initializeMemberDebits(id);
+	initalizeMemSummary(id)
 
 }
 
 function getContextPath() {
 	return window.location.pathname.substring(0, window.location.pathname
 			.indexOf("/", 2));
+}
+
+function genMemDebits() {
+	var id = $("#memberCode").val();
+	$.get(getContextPath() + "/protected/g7Members/genMemDebits/" + id, function(
+			result) {
+		$("#g7MemberDtData").html(result);
+	});
+
+}
+
+function initalizeMemSummary(id) {
+	$.get(getContextPath() + "/protected/g7Members/initalizeMemSummary/"
+			+ id, function(result) {
+
+		$("#g7MemberSummaryData").html(result);
+
+	});
 }
 
 

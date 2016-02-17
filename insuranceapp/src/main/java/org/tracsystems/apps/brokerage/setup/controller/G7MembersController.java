@@ -12,9 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.tracsystems.apps.brokerage.setups.model.G7MemberCredits;
 import org.tracsystems.apps.brokerage.setups.model.G7MemberDebits;
 import org.tracsystems.apps.brokerage.setups.model.G7Members;
+import org.tracsystems.apps.brokerage.setups.model.ProductSubClass;
 import org.tracsystems.apps.brokerage.setups.service.G7MemberService;
 import org.tracsystems.apps.brokerage.setups.vo.G7MemberCreditsVO;
 import org.tracsystems.apps.brokerage.setups.vo.G7MemberDebitsVO;
+import org.tracsystems.apps.brokerage.setups.vo.G7MembersVO;
 import org.tracsystems.apps.brokerage.utils.DataTableObject;
 
 
@@ -40,6 +42,14 @@ public class G7MembersController {
 	     return model;
 	 }
 	 
+	 @RequestMapping(value="/initalizeMemSummary/{memId}",method = RequestMethod.GET)
+     public ModelAndView findG7MemberDetails(@PathVariable Long memId){
+		  G7MembersVO CurrMemberDtls = g7MemberService.findG7MemberDetails(memId);
+    	  ModelAndView model = new ModelAndView();
+    	  model.addObject("currMember", CurrMemberDtls);
+    	  model.setViewName("g7MemberSummary");
+    	 return model;
+     }
 	 
 	 @RequestMapping(value = "/getSpecMemDebits/{memId}", produces = "application/json")
 	 public @ResponseBody DataTableObject<G7MemberDebitsVO> getSpecificMemberDebits(@PathVariable Long memId,@RequestParam int iDisplayStart,
@@ -63,6 +73,13 @@ public class G7MembersController {
     	Long totalRecords = memCredits.getTotalElements();
     	DataTableObject<G7MemberCreditsVO> memCreditsObject = new DataTableObject<G7MemberCreditsVO>(totalRecords,totalRecords,memCredits.getContent());
     	return memCreditsObject;
+	 }
+	 
+	 @RequestMapping(value = "/genMemDebits/{memId}")
+	 public String GenerateMemberDebits(@PathVariable Long memId){
+		 
+		 g7MemberService.GenerateMemberDebits(memId);
+		 return "g7MemberDList";
 	 }
 
 }
